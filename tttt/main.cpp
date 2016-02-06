@@ -91,7 +91,6 @@ string ans = "";
 int main()
 {
 	window.setKeyRepeatEnabled(false);
-	window.clear(sf::Color(245, 255, 250));
 	bool end = false;
 	sf::Font font;
 	if (!font.loadFromFile("simple.ttf"))
@@ -122,17 +121,7 @@ int main()
 		}
 	}
 	int move = 110;
-	for (int i = 0; i < 10; i++)
-	{
-		sf::Text verb;
-		verb.setString(s[form1[i]][0]);
-		verb.setPosition(10, move);
-		verb.setColor(sf::Color::Black);
-		verb.setFont(font);
-		verb.setCharacterSize(28);
-		window.draw(verb);
-		move += 45;
-	}
+	
 	sf::Text result;
 	result.setPosition(60, 550);
 	result.setColor(sf::Color::Red);
@@ -195,6 +184,19 @@ int main()
 	while (window.isOpen())
 	{
 		//window.clear(sf::Color::White);
+		window.clear(sf::Color(245, 255, 250));
+		move = 110;
+		for (int i = 0; i < 10; i++)
+		{
+			sf::Text verb;
+			verb.setString(s[form1[i]][0]);
+			verb.setPosition(10, move);
+			verb.setColor(sf::Color::Black);
+			verb.setFont(font);
+			verb.setCharacterSize(28);
+			window.draw(verb);
+			move += 45;
+		}
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
